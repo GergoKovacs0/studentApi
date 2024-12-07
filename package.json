@@ -18,5 +18,8 @@
   "homepage": "https://github.com/GergoKovacs0/studentApi#readme",
   "dependencies": {
     "express": "^4.21.2"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0"
   }
 }
