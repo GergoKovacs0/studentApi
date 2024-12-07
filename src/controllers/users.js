@@ -1,9 +1,34 @@
-export const getAllUsers = async (req, res) => {};
+export const getAllUsers = async (req, res, next) => {
+  try {
+  } catch (err) {
+    next(err);
+  }
+};
 
-export const getUserById = async (req, res) => {};
+export const getUserById = async (req, res, next) => {
+  try {
+  } catch (err) {
+    next(err);
+  }
+};
 
-export const createUser = async (req, res) => {};
+export const createUser = async (req, res, next) => {
+  try {
+  } catch (err) {
+    next(err);
+  }
+};
 
-export const updateUser = async (req, res) => {};
+export const updateUser = async (req, res, next) => {
+  try {
+  } catch (err) {
+    next(err);
+  }
+};
 
-export const deleteUser = async (req, res) => {};
+export const deleteUser = async (req, res, next) => {
+  try {
+  } catch (err) {
+    next(err);
+  }
+};
