@@ -19,7 +19,8 @@
   },
   "homepage": "https://github.com/GergoKovacs0/studentApi#readme",
   "dependencies": {
-    "express": "^4.21.2"
+    "express": "^4.21.2",
+    "sqlite": "^5.1.1"
   },
   "devDependencies": {
     "jest": "^29.7.0",
