@@ -1,0 +1,22 @@
+{
+  "name": "studentapi",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GergoKovacs0/studentApi.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GergoKovacs0/studentApi/issues"
+  },
+  "homepage": "https://github.com/GergoKovacs0/studentApi#readme",
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}
