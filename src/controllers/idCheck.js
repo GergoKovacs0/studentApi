@@ -1,5 +1,5 @@
-export const checkIfIdValid = (id) => {
-  if (isNaN(id)) {
+export const isValidId = (id) => {
+  if (isNaN(id) || id === "") {
     return { status: 400, message: "ID must be a number" };
   }
 
@@ -10,4 +10,4 @@ export const checkIfIdValid = (id) => {
   return true;
 };
 
-export default checkIfIdValid;
+export default isValidId;
