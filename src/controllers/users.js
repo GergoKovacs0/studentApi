@@ -45,10 +45,10 @@ export const createUser = async (req, res, next) => {
       "INSERT INTO users (firstName, lastName, email, class) VALUES (?, ?, ?, ?);",
       [firstName, lastName, email, className]
     );
-    res.status(201).json(response);
+    res.status(201).json(result.lastID);
   } catch (err) {
     if (err.code === "SQLITE_CONSTRAINT") {
-      return res.status(400).json({ message: "Email already exists" });
+      return res.status(409).json({ message: "Email already exists" });
     }
     next(err);
   }
@@ -63,17 +63,19 @@ export const updateUser = async (req, res, next) => {
     if (valid !== true)
       return res.status(valid.status).json({ message: valid.message });
 
+    if (!isValidEmail(email))
+      return res.status(400).json({ message: "Invalid email" });
+
     if (!firstName || !lastName || !email || !className)
       return res.status(400).json({ message: "All fields are required" });
 
-    const user = await dbQuery("SELECT * FROM users WHERE id = ?;", [id]);
-    if (!user) return res.status(404).json({ message: "User not found" });
-
-    await dbRun(
+    const changes = await dbRun(
       "UPDATE users SET firstName = ?, lastName = ?, email = ?, class = ? WHERE id = ?;",
       [firstName, lastName, email, className, id]
     );
-    res.status(204).json({ message: "User updated" });
+    if (changes.changes === 0)
+      return res.status(404).json({ message: "User not found" });
+    res.status(204);
   } catch (err) {
     next(err);
   }
@@ -87,9 +89,11 @@ export const deleteUser = async (req, res, next) => {
     if (valid !== true)
       return res.status(valid.status).json({ message: valid.message });
 
-    const user = await dbQuery("DELETE FROM users WHERE id = ?;", [id]);
+    const user = await dbRun("DELETE FROM users WHERE id = ?;", [id]);
 
-    res.status(204).json({ message: "User deleted" });
+    if (user.changes === 0)
+      return res.status(404).json({ message: "User not found" });
+    res.status(200).json({ message: "User deleted" });
   } catch (err) {
     next(err);
   }
