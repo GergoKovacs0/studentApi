@@ -1,5 +1,5 @@
 import { dbQuery, dbRun } from "../database.js";
-import checkIfIdValid from "./idCheck.js";
+import isValidId from "./idCheck.js";
 import isValidEmail from "./emailCheck.js";
 import { response } from "express";
 
@@ -16,8 +16,9 @@ export const getUserById = async (req, res, next) => {
   try {
     const id = req.params.id;
 
-    const valid = checkIfIdValid(id);
-    if (!valid)
+    const valid = isValidId(id);
+    console.log(valid);
+    if (valid !== true)
       return res.status(valid.status).json({ message: valid.message });
 
     const [user] = await dbQuery("SELECT * FROM users WHERE id = ?;", [id]);
@@ -58,8 +59,8 @@ export const updateUser = async (req, res, next) => {
     const id = req.params.id;
     const { firstName, lastName, email, className } = req.body;
 
-    const valid = checkIfIdValid(id);
-    if (!valid)
+    const valid = isValidId(id);
+    if (valid !== true)
       return res.status(valid.status).json({ message: valid.message });
 
     if (!firstName || !lastName || !email || !className)
@@ -82,8 +83,8 @@ export const deleteUser = async (req, res, next) => {
   try {
     const id = req.params.id;
 
-    const valid = checkIfIdValid(id);
-    if (!valid)
+    const valid = isValidId(id);
+    if (valid !== true)
       return res.status(valid.status).json({ message: valid.message });
 
     const user = await dbQuery("DELETE FROM users WHERE id = ?;", [id]);
