@@ -3,11 +3,15 @@ import cors from "cors";
 import { initializeDB } from "./database.js";
 import userRoutes from "./routes/users.js";
 
+import { setupSwagger } from "./swagger.js";
+
 const app = express();
 const PORT = 3000;
 
 app.use(cors());
 app.use(express.json());
+
+setupSwagger(app);
 
 app.use("/api/users", userRoutes);
 
