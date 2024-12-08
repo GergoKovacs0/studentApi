@@ -22,7 +22,8 @@
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.21.2",
-    "sqlite3": "^5.1.7"
+    "sqlite3": "^5.1.7",
+    "swagger": "^0.7.5"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.26.0",
