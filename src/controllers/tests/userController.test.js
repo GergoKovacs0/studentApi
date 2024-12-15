@@ -26,21 +26,21 @@ describe("user.js - userController", () => {
           firstName: "John",
           lastName: "Doe",
           email: "john.doe@example.com",
-          class: "A",
+          className: "A",
         },
         {
           id: 2,
           firstName: "John",
           lastName: "Porke",
           email: "adss.daa@example.com",
-          class: "A",
+          className: "A",
         },
         {
           id: 3,
           firstName: "Jophni",
           lastName: "Smith",
           email: "john.doe@example.com",
-          class: "A",
+          className: "A",
         },
       ]);
 
@@ -54,21 +54,21 @@ describe("user.js - userController", () => {
           firstName: "John",
           lastName: "Doe",
           email: "john.doe@example.com",
-          class: "A",
+          className: "A",
         },
         {
           id: 2,
           firstName: "John",
           lastName: "Porke",
           email: "adss.daa@example.com",
-          class: "A",
+          className: "A",
         },
         {
           id: 3,
           firstName: "Jophni",
           lastName: "Smith",
           email: "john.doe@example.com",
-          class: "A",
+          className: "A",
         },
       ]);
     });
@@ -96,7 +96,7 @@ describe("user.js - userController", () => {
           firstName: "John",
           lastName: "Doe",
           email: "john.doe@example.com",
-          class: "A",
+          className: "A",
         },
       ]);
 
@@ -109,7 +109,7 @@ describe("user.js - userController", () => {
         firstName: "John",
         lastName: "Doe",
         email: "john.doe@example.com",
-        class: "A",
+        className: "A",
       });
     });
 

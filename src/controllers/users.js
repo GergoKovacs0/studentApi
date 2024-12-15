@@ -42,7 +42,7 @@ export const createUser = async (req, res, next) => {
       return res.status(400).json({ message: "Invalid email" });
 
     const result = await dbRun(
-      "INSERT INTO users (firstName, lastName, email, class) VALUES (?, ?, ?, ?);",
+      "INSERT INTO users (firstName, lastName, email, className) VALUES (?, ?, ?, ?);",
       [firstName, lastName, email, className]
     );
     res.status(201).json(result.lastID);
@@ -70,7 +70,7 @@ export const updateUser = async (req, res, next) => {
       return res.status(400).json({ message: "All fields are required" });
 
     const changes = await dbRun(
-      "UPDATE users SET firstName = ?, lastName = ?, email = ?, class = ? WHERE id = ?;",
+      "UPDATE users SET firstName = ?, lastName = ?, email = ?, className = ? WHERE id = ?;",
       [firstName, lastName, email, className, id]
     );
     if (changes.changes === 0)

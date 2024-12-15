@@ -4,7 +4,7 @@ const db = new sqlite3.Database("./database.sqlite");
 
 const initializeDB = async () => {
   await dbRun(
-    "CREATE TABLE IF NOT EXISTS users (  id INTEGER PRIMARY KEY AUTOINCREMENT,firstName TEXT,lastName TEXT,email TEXT UNIQUE,class TEXT)"
+    "CREATE TABLE IF NOT EXISTS users (  id INTEGER PRIMARY KEY AUTOINCREMENT,firstName TEXT,lastName TEXT,email TEXT UNIQUE,className TEXT)"
   );
 };
 
